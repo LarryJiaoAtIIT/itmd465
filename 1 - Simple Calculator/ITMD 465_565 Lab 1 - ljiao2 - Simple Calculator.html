@@ -73,8 +73,13 @@
 
 	<script>
 		// Begin all JavaScript Code Here - Do not put JavaScript outside these comments.
-		var a = document.getElementById('val1');
-		var b = document.getElementById('val2');
+		var a = document.getElementById('val1').value.trim();
+		var a = Number(a);
+		
+		var b = document.getElementById('val2').value.trim();
+		var b = Number(b);
+		
+		var d = document.getElementById('results');
 		
 		document.getElementById('addBtn').addEventListener('click', add, false);
 		document.getElementById('subBtn').addEventListener('click', sub, false);
@@ -82,28 +87,41 @@
 		document.getElementById('divBtn').addEventListener('click',divi, false);
 		document.getElementById('resetBtn').addEventListener('click',reset, false);
 		
-		function add(a,b){
-			return a+b;
-		}
-		
-		function sub(a,b){
-			return a-b;
-		}
-		
-		function mult(a,b){
-			return a*b;
-		}
-		
-		function divi(a,b){
-			if (b=0){
-				alert("Cannot divide by 0!");
+		function add(){
+			if (a =="" || b=="" || isNaN(a) || isNaN(b)){
+				alert('Please put in a number!');
 			}
-			return a/b;
+				
+			d.value = a+b;
+		}
+		
+		function sub(){
+			if (a =="" || b=="" || isNaN(a) || isNaN(b)){
+				alert('Please put in a number!');
+			}
+					
+			d.value=a-b;
+		}
+		
+		function mult(){
+			if (a =="" || b=="" || isNaN(a) || isNaN(b)){
+				alert('Please put in a number!');
+			}
+			d.value= a*b;
+		}
+		
+		function divi(){
+			if (a =="" || b=="" || isNaN(a) || isNaN(b)|| b==0){
+			alert('Please put in some nonzero values!');
+			}
+		
+		
+			d.value= a/b;
 		}
 		
 		function reset(){
-			a.reset();
-			b.reset();
+			document.getElementById('val1').value="";
+			document.getElementById('val2').value="";
 		}
 		
 		
