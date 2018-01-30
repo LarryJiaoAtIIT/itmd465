@@ -73,13 +73,10 @@
 
 	<script>
 		// Begin all JavaScript Code Here - Do not put JavaScript outside these comments.
-		var a = document.getElementById('val1').value.trim();
-		var a = Number(a);
+		var a = Number(document.getElementById('val1').value);
+		var b = Number(document.getElementById('val2').value);
 		
-		var b = document.getElementById('val2').value.trim();
-		var b = Number(b);
-		
-		var d = document.getElementById('results');
+		var answer = document.getElementById('results');
 		
 		document.getElementById('addBtn').addEventListener('click', add, false);
 		document.getElementById('subBtn').addEventListener('click', sub, false);
@@ -87,41 +84,58 @@
 		document.getElementById('divBtn').addEventListener('click',divi, false);
 		document.getElementById('resetBtn').addEventListener('click',reset, false);
 		
-		function add(){
-			if (a =="" || b=="" || isNaN(a) || isNaN(b)){
-				alert('Please put in a number!');
+		function validateEntry()
+		{
+		if (a==null || a=="",b==null ){
+            alert("Please put in your numbers");
+			return false;
 			}
-				
-			d.value = a+b;
+		else{
+			return true;
+			}
+		}
+		
+		function validateZero()
+		{
+			if(b==0){
+			alert("Please put in a nonzero number");
+			return false;
+			}
+			else{
+			return true;
+		}
+		}
+		
+		
+		function add(){
+			validateEntry();
+			answer.value = a+b;
+			document.getElementById('results').innerHTML="Your Sum is: "+answer;
 		}
 		
 		function sub(){
-			if (a =="" || b=="" || isNaN(a) || isNaN(b)){
-				alert('Please put in a number!');
-			}
-					
-			d.value=a-b;
+			validateEntry();
+			answer.value=a-b;
+			document.getElementById('results').innerHTML="Your Difference is: "+answer;
 		}
 		
 		function mult(){
-			if (a =="" || b=="" || isNaN(a) || isNaN(b)){
-				alert('Please put in a number!');
-			}
-			d.value= a*b;
+			validateEntry();
+			answer.value= a*b;
+			document.getElementById('results').innerHTML="Your Product is: "+answer;
 		}
 		
 		function divi(){
-			if (a =="" || b=="" || isNaN(a) || isNaN(b)|| b==0){
-			alert('Please put in some nonzero values!');
-			}
-		
-		
-			d.value= a/b;
+			validateEntry();
+			validateZero();
+			answer.value= a/b;
+			document.getElementById('results').innerHTML="Your Quotient is: "+answer;
 		}
 		
 		function reset(){
 			document.getElementById('val1').value="";
 			document.getElementById('val2').value="";
+			document.getElementById('results').value="";
 		}
 		
 		
