@@ -73,8 +73,6 @@
 
 	<script>
 		// Begin all JavaScript Code Here - Do not put JavaScript outside these comments.
-		var a = Number(document.getElementById('val1').value);
-		var b = Number(document.getElementById('val2').value);
 		
 		var answer = document.getElementById('results');
 		
@@ -84,20 +82,23 @@
 		document.getElementById('divBtn').addEventListener('click',divi, false);
 		document.getElementById('resetBtn').addEventListener('click',reset, false);
 		
+		function reset(){
+			document.getElementById('val1').value="";
+			document.getElementById('val2').value="";
+			document.getElementById('results').value="";
+		}
+		
 		function validateEntry()
 		{
-		if (a==null || a=="",b==null ){
+		if (val1.value==null || val1.value=="", val2.value==null ){
             alert("Please put in your numbers");
-			return false;
-			}
-		else{
-			return true;
+			reset();
 			}
 		}
 		
 		function validateZero()
 		{
-			if(b==0){
+			if(val2.value==0){
 			alert("Please put in a nonzero number");
 			return false;
 			}
@@ -109,34 +110,30 @@
 		
 		function add(){
 			validateEntry();
-			answer.value = a+b;
-			document.getElementById('results').innerHTML="Your Sum is: "+answer;
+			answer.value = Number(val1.value)+Number(val2.value);
+			document.getElementById('results').innerHTML=Number(answer.value);
 		}
 		
 		function sub(){
 			validateEntry();
-			answer.value=a-b;
-			document.getElementById('results').innerHTML="Your Difference is: "+answer;
+			answer.value=Number(val1.value)-Number(val2.value);
+			document.getElementById('results').innerHTML=Number(answer.value);
 		}
 		
 		function mult(){
 			validateEntry();
-			answer.value= a*b;
-			document.getElementById('results').innerHTML="Your Product is: "+answer;
+			answer.value= Number(val1.value)*Number(val2.value);
+			document.getElementById('results').innerHTML=Number(answer.value);
 		}
 		
 		function divi(){
 			validateEntry();
 			validateZero();
-			answer.value= a/b;
-			document.getElementById('results').innerHTML="Your Quotient is: "+answer;
+			answer.value= Number(val1.value)/Number(val2.value);
+			document.getElementById('results').innerHTML=Number(answer.value);
 		}
 		
-		function reset(){
-			document.getElementById('val1').value="";
-			document.getElementById('val2').value="";
-			document.getElementById('results').value="";
-		}
+		
 		
 		
 		
