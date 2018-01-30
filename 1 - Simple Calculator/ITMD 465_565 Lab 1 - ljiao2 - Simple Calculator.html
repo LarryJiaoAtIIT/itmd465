@@ -3,9 +3,9 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<!-- Modify Title between these comments (Choose correct class number and substitute your username) -->
-	<title>ITMD 465/565 Lab 1 - USERNAME - Simple Calculator</title>
+	<title>ITMD 465 Lab 1 - ljiao2 - Simple Calculator</title>
 	<!-- Modify Title between these comments -->
-	<style type="text/css">
+	<style>
 		body {
 			background-color: #ddd;
 			font-family: sans-serif;
@@ -52,8 +52,8 @@
 <body>
 	<div id="main-container">
 		<!-- Modify headlines between these comments (Choose correct class number and substitute Name and Email) -->
-		<h1>ITMD 465/565 - Lab 1 - Simple Calculator</h1>
-		<h2>Your First and Last Name - Your Email address</h2>
+		<h1>ITMD 465 - Lab 1 - Simple Calculator</h1>
+		<h2>Larry Jiao - ljiao2@hawk.iit.edu</h2>
 		<!-- Modify headlines between these comments -->
 		<div id="calculator-wrapper">
 			<div id="input-wrapper">
@@ -71,9 +71,65 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
+	<script>
 		// Begin all JavaScript Code Here - Do not put JavaScript outside these comments.
-
+		var a = document.getElementById('val1');
+		var b = document.getElementById('val2');
+		
+		document.getElementById('addBtn').addEventListener('click', add, false);
+		document.getElementById('subBtn').addEventListener('click', sub, false);
+		document.getElementById('multBtn').addEventListener('click',mult, false);
+		document.getElementById('divBtn').addEventListener('click',divi, false);
+		document.getElementById('resetBtn').addEventListener('click',reset, false);
+		
+		function add(a,b){
+			return a+b;
+		}
+		
+		function sub(a,b){
+			return a-b;
+		}
+		
+		function mult(a,b){
+			return a*b;
+		}
+		
+		function divi(a,b){
+			if (b=0){
+				alert("Cannot divide by 0!");
+			}
+			return a/b;
+		}
+		
+		function reset(){
+			a.reset();
+			b.reset();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 
 		// End all JavaScript Code Here - Do not put JavaScript outside these comments.
