@@ -72,8 +72,8 @@
 	</div>
 
 	<script>
-		// Begin all JavaScript Code Here - Do not put JavaScript outside these comments.
-		
+		// Try not to over complicate things! You might spend the rest of the night figuring out
+		// you could have done something much easier without realizing it!
 		var answer = document.getElementById('results');
 		
 		document.getElementById('addBtn').addEventListener('click', add, false);
@@ -88,23 +88,22 @@
 			document.getElementById('results').value="";
 		}
 		
-		function validateEntry()
-		{
-		if (val1.value==null || val1.value=="", val2.value==null ){
-            alert("Please put in your numbers");
-			reset();
+		function validateEntry()		{
+			if (val1.value==null || val1.value==="", val2.value==null ){
+				alert("Please put in your numbers");
+				reset();
 			}
 		}
 		
 		function validateZero()
 		{
 			if(val2.value==0){
-			alert("Please put in a nonzero number");
-			return false;
+				alert("Please put in a nonzero number");
+				return false;
 			}
 			else{
-			return true;
-		}
+				return true;
+			}
 		}
 		
 		
