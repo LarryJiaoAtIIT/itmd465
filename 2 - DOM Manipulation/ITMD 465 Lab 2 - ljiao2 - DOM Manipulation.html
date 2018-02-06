@@ -61,6 +61,7 @@
 		<label for="bodyInput">Body Text: </label><input id="bodyInput" type="text"><br>
 		<label for="qtyInput">Quantity: </label><input id="qtyInput" type="text"><br>
 		<label for="colorInput">Color: </label>
+		
 		<select id="colorInput">
 			<option value="red">Red</option>
 			<option value="green">Green</option>
@@ -76,18 +77,74 @@
 	</div>
 	
 	<script type="text/javascript">
-		
-		(function(){
-		
-		
+		document.getElementById("resetBtn").addEventListener("click",erase);	
+		document.getElementById("runBtn").addEventListener("click",generate);
 		
 		
+			// Checks user input for invalid characters & if the form has been filled
+			function validate(){
+				var bodInp = document.getElementById('bodyInput').value;
+				var qtyInp = +document.getElementById('qtyInput').value;
+			if (bodInp =="" || qtyInp ==""){
+				// checks if there were any user input
+				alert("Please enter a message or the quantity.");
+			}else if (isNaN(qtyInp))
+				// checks if the input is not an integer
+				alert("Please put in an integer.");
+			
+			}
+			// Erases and resets user input
+			function erase(){
+			bodInp ="";
+			qtyInp =="";
+			
+			}
+			
+			// + operator forces variable into a number, otherwise returns null
+			// Generates the content
+			function generate(){
+				validate();
+				var bodInp = document.getElementById('bodyInput').value;
+				var qtyInp = +document.getElementById('qtyInput').value;
+				var colInp = document.getElementById('colorInput').value;
+				
+				
+				
+				var content = [];
+
+				for (var i=1; i<=qtyInp; i++) {
+					if(colInp.value=="red"){
+						content.push("<div id=\"resultsWrapper\" class=\"result red\"><h2>Output "+i+"</h2><p>"+bodInp+"</div>");
+					}else if (colInp.value=="green"){
+						content.push("<div id=\"resultsWrapper\" class=\"result green\"><h2>Output "+i+"</h2><p>"+bodInp+"</div>");
+					}else if (colInp.value=="blue"){
+						content.push("<div id=\"resultsWrapper\" class=\"result blue\"><h2>Output "+i+"</h2><p>"+bodInp+"</div>");
+					}
+				
+				document.getElementById("resultsWrapper").innerHTML = content.join("");
+			}
+			
+			function colorSelect(){
+				var colorChoose = document.getElementById("colorInput");
+				colorChoose.onchange = "colorChoose.className=colorChoose.options[colorChoose.selectedIndex].className;"
+			}
 		
-		})();
-		
-		
-		
-	
 	</script>
 
 </body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
