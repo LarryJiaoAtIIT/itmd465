@@ -79,7 +79,7 @@
 	<script type="text/javascript">
 		document.getElementById("resetBtn").addEventListener("click",erase);	
 		document.getElementById("runBtn").addEventListener("click",generate);
-		
+		var colorChoose = document.getElementById("colorInput");
 		
 			// Checks user input for invalid characters & if the form has been filled
 			function validate(){
@@ -93,7 +93,7 @@
 				alert("Please put in an integer.");
 			
 			}
-			// Erases and resets user input
+			// Erases and resets user input -- Unfinished
 			function erase(){
 			bodInp ="";
 			qtyInp =="";
@@ -106,18 +106,16 @@
 				validate();
 				var bodInp = document.getElementById('bodyInput').value;
 				var qtyInp = +document.getElementById('qtyInput').value;
-				var colInp = document.getElementById('colorInput').value;
-				
 				
 				
 				var content = [];
 
 				for (var i=1; i<=qtyInp; i++) {
-					if(colInp.value=="red"){
+					if (colorChoose.value=="red"){
 						content.push("<div id=\"resultsWrapper\" class=\"result red\"><h2>Output "+i+"</h2><p>"+bodInp+"</div>");
-					}else if (colInp.value=="green"){
+					}else if (colorChoose.value=="green"){
 						content.push("<div id=\"resultsWrapper\" class=\"result green\"><h2>Output "+i+"</h2><p>"+bodInp+"</div>");
-					}else if (colInp.value=="blue"){
+					}else if (colorChoose.value=="blue"){
 						content.push("<div id=\"resultsWrapper\" class=\"result blue\"><h2>Output "+i+"</h2><p>"+bodInp+"</div>");
 					}
 				
@@ -125,8 +123,8 @@
 			}
 			
 			function colorSelect(){
-				var colorChoose = document.getElementById("colorInput");
 				colorChoose.onchange = "colorChoose.className=colorChoose.options[colorChoose.selectedIndex].className;"
+				}
 			}
 		
 	</script>
