@@ -37,6 +37,7 @@
 		}
 		#resultsWrapper .red h2 {
 			color: red;
+			
 		}
 		#resultsWrapper .green {
 			border-color: green;
@@ -85,9 +86,9 @@
 			function validate(){
 				var bodInp = document.getElementById('bodyInput').value;
 				var qtyInp = +document.getElementById('qtyInput').value;
-			if (bodInp =="" || qtyInp ==""){
+			if (bodInp =="" || qtyInp =="" || qtyInp < 0){
 				// checks if there were any user input
-				alert("Please enter a message or the quantity.");
+				alert("Please enter a message or a positive quantity.");
 			}else if (isNaN(qtyInp))
 				// checks if the input is not an integer
 				alert("Please put in an integer.");
@@ -95,8 +96,9 @@
 			}
 			// Erases and resets user input -- Unfinished
 			function erase(){
-			bodInp ="";
-			qtyInp =="";
+			document.getElementById('bodyInput').value="";
+			document.getElementById('qtyInput').value="";
+			colorChoose.selectedIndex=0;
 			
 			}
 			
@@ -106,10 +108,9 @@
 				validate();
 				var bodInp = document.getElementById('bodyInput').value;
 				var qtyInp = +document.getElementById('qtyInput').value;
-				
-				
+							
 				var content = [];
-
+				
 				for (var i=1; i<=qtyInp; i++) {
 					if (colorChoose.value=="red"){
 						content.push("<div id=\"resultsWrapper\" class=\"result red\"><h2>Output "+i+"</h2><p>"+bodInp+"</div>");
