@@ -52,9 +52,52 @@
 	<script>
 		var pullData = document.getElementById("load");
 		var reset = document.getElementById("reset");
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET',
+		
+		
+		var getData = new XMLHttpRequest();
+		getData.open('GET', ' http://libertyville.rice.iit.edu/scripts/4565_lab3.php');
+		getData.onload=function(){
+			var ourData = JSON.parse(getData.responseText);
+			document.getElementById("grabby").innerHTML=console.log(ourData[0]);
+		}
+		getData.send();
 	
+		}
 	</script>
 	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </html>
