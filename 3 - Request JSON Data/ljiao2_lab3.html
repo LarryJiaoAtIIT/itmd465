@@ -54,7 +54,7 @@
 		</div>
 	<script>
 		var pullData = document.getElementById("load").addEventListener('click',parseData);
-		var reset = document.getElementById("reset");
+		var reset = document.getElementById("reset").addEventListener('click',resetData);
 		var dataURL= "http://libertyville.rice.iit.edu/scripts/4565_lab3.php";
 		
 		
@@ -63,7 +63,9 @@
 		getData.open('GET', dataURL);
 		getData.send();
 		
+		
 		function parseData(getEvent){
+			
 			var myArray= JSON.parse(getEvent.target.responseText);
 			var output="";
 
@@ -71,9 +73,12 @@
 			output+= '<tr><td>' + myArray[i].id + '</td><td>' + myArray[i].gender + '</td><td>' + myArray[i].first_name + '</td><td>' + myArray[i].last_name + '</td><td>' + myArray[i].email + '</td><td>' + myArray[i].active + '</td><td>' + myArray[i].title + '</td></tr>';
 			}
 			output +="</table>";
-			document.getElementById("grabby").innerHTML ="<table border='1' width=\"100%\" font-weight: 600><tr><td>ID</td><td>Gender</td><td>First Name</td><td>Last Name</td><td>E-Mail</td><td>Active</td><td>Title</td>" + output;
+			document.getElementById("grabby").innerHTML ="<table border='1' width=\"100%\" ><tr><td>ID</td><td>Gender</td><td>First Name</td><td>Last Name</td><td>E-Mail</td><td>Active</td><td>Title</td>" + output;
 		}
 		
+		function resetData(){
+			document.getElementById("grabby").innerHTML ="<table border='1' width=\"100%\" ><tr><td>ID</td><td>Gender</td><td>First Name</td><td>Last Name</td><td>E-Mail</td><td>Active</td><td>Title</td>";
+		}
 	
 
 	</script>
