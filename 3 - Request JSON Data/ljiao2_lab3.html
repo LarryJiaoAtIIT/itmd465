@@ -28,12 +28,20 @@
 			height:auto;
 		
 		}
+		#info{
+			border: 0.2em solid black;
+			margin-left: 1em;
+		}
 		.intro{
 			font-family:arial;
 			font-size:1.2em;
 			font-weight:600;
 			margin-top:0.5em;
 			margin-bottom:0.5em;
+		}
+		td{
+			margin-left: 0.2em;
+			margin-right:0.2em;
 		}
 		</style>
 	</head>
@@ -47,7 +55,6 @@
 		</div>
 		
 		<div id="grabby">
-		
 		</div>
 	<script>
 		var pullData = document.getElementById("load").addEventListener('click',parseData);
@@ -58,15 +65,20 @@
 		var getData = new XMLHttpRequest();
 		getData.addEventListener('load',parseData);
 		getData.open('GET', dataURL);
-		
+		getData.send();
 		
 		function parseData(getEvent){
 			var myArray= JSON.parse(getEvent.target.responseText);
-			console.log(myArray[0]);
-		//	document.getElementById("load").innerHTML = getData.responseText;
-		
+			var output ='';
+			for(i=0; i<31; i++){
+			output+= '<table border=\"1\"><tr><td>' + myArray[i].id + '</td><td>' + myArray[i].gender + '</td><td>' + myArray[i].first_name + '</td><td>' + myArray[i].last_name + '</td><td>' + myArray[i].email + '</td><td>' + myArray[i].active + '</td><td>' + myArray[i].title + '</td></tr></table>';
+			
+			document.getElementById("grabby").innerHTML = output;
+			}
+			
+			
 		}
-		getData.send();
+		
 	
 
 	</script>
