@@ -12,4 +12,4 @@ A DOM Manipulation lab, where when given two text inputs and an option pane, the
  
 3.  AJAX Calling
 
-Calling an external JSON file, and manipulating the DOM to display the data in a table. 
+Calling an external JSON file, and manipulating the DOM to display the data in a table. No JQuery involved. 
