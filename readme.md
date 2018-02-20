@@ -8,6 +8,8 @@ A simple calculator that performs basic arithmetic operations. This calculator r
 
 2.  DOM Manipulator
  
- A DOM Manipulation lab, where when given two text inputs and an option pane, the output truly rattles your soul! The old saying goes that you should think outside the box, but maybe it's time to head back inside, and reminisce back on where you came from. 
+A DOM Manipulation lab, where when given two text inputs and an option pane, the output truly rattles your soul! The old saying goes that you should think outside the box, but maybe it's time to head back inside, and reminisce back on where you came from. 
  
-3.  [Coming Soon!]
+3.  AJAX Calling
+
+Calling an external JSON file, and manipulating the DOM to display the data in a table. 
