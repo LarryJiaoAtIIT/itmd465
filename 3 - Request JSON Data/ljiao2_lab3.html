@@ -50,19 +50,25 @@
 		
 		</div>
 	<script>
-		var pullData = document.getElementById("load");
+		var pullData = document.getElementById("load").addEventListener('click',parseData);
 		var reset = document.getElementById("reset");
+		var dataURL= "http://libertyville.rice.iit.edu/scripts/4565_lab3.php";
 		
 		
 		var getData = new XMLHttpRequest();
-		getData.open('GET', ' http://libertyville.rice.iit.edu/scripts/4565_lab3.php');
-		getData.onload=function(){
-			var ourData = JSON.parse(getData.responseText);
-			document.getElementById("grabby").innerHTML=console.log(ourData[0]);
+		getData.addEventListener('load',parseData);
+		getData.open('GET', dataURL);
+		
+		
+		function parseData(getEvent){
+			var myArray= JSON.parse(getEvent.target.responseText);
+			console.log(myArray[0]);
+		//	document.getElementById("load").innerHTML = getData.responseText;
+		
 		}
 		getData.send();
 	
-		}
+
 	</script>
 	</body>
 	
