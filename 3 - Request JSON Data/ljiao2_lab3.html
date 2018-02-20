@@ -57,6 +57,13 @@
 		var reset = document.getElementById("reset").addEventListener('click',resetData);
 		var dataURL= "http://libertyville.rice.iit.edu/scripts/4565_lab3.php";
 		
+			// Function Declarations
+			// getParseData sends the AJAX request to the external link as shown above and sends it.
+			// parseData converts the JSON objects to relatable JS DOM objects, which are sent out with a loop indexing the objects and displaying them in each row. 
+			// resetData retains the header row, but does not display the output. 
+			//
+			// Additionally, either button is disabled when the other one is in use. 
+		
 		function getParseData(){
 		var getData = new XMLHttpRequest();
 		getData.addEventListener('load',parseData); 
