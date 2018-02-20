@@ -39,10 +39,6 @@
 			margin-top:0.5em;
 			margin-bottom:0.5em;
 		}
-		td{
-			margin-left: 0.2em;
-			margin-right:0.2em;
-		}
 		</style>
 	</head>
 	<body>
@@ -69,14 +65,13 @@
 		
 		function parseData(getEvent){
 			var myArray= JSON.parse(getEvent.target.responseText);
-			var output ='';
-			for(i=0; i<31; i++){
-			output+= '<table border=\"1\"><tr><td>' + myArray[i].id + '</td><td>' + myArray[i].gender + '</td><td>' + myArray[i].first_name + '</td><td>' + myArray[i].last_name + '</td><td>' + myArray[i].email + '</td><td>' + myArray[i].active + '</td><td>' + myArray[i].title + '</td></tr></table>';
-			
-			document.getElementById("grabby").innerHTML = output;
+			var output="";
+
+			for(i in myArray){
+			output+= '<tr><td>' + myArray[i].id + '</td><td>' + myArray[i].gender + '</td><td>' + myArray[i].first_name + '</td><td>' + myArray[i].last_name + '</td><td>' + myArray[i].email + '</td><td>' + myArray[i].active + '</td><td>' + myArray[i].title + '</td></tr>';
 			}
-			
-			
+			output +="</table>";
+			document.getElementById("grabby").innerHTML ="<table border='1' width=\"100%\" font-weight: 600><tr><td>ID</td><td>Gender</td><td>First Name</td><td>Last Name</td><td>E-Mail</td><td>Active</td><td>Title</td>" + output;
 		}
 		
 	
